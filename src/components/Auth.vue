@@ -60,7 +60,7 @@
                         </button>
                     </form>
                     <!-- Registration Form -->
-                    <vee-form v-show="tab === 'register'" :validation-schema="schema">
+                    <vee-form v-show="tab === 'register'" :validation-schema="schema" @submit="register">
                         <!-- Name -->
                         <div class="mb-3">
                             <label class="inline-block mb-2">Name</label>
@@ -115,6 +115,7 @@
                         <div class="mb-3 pl-6">
                             <vee-field name="tos" value="1" type="checkbox" class="w-4 h-4 float-left -ml-6 mt-1 rounded" />
                             <label class="inline-block">Accept terms of service</label>
+                            <br />
                             <ErrorMessage class="text-red-600" name="tos"></ErrorMessage>
                         </div>
                         <button type="submit"
@@ -150,6 +151,11 @@ export default {
     computed: {
         ...mapState(useModalStore, ["hiddenClass"]),
         ...mapWritableState(useModalStore, ["isOpen"])
+    },
+    methods: {
+        register() {
+
+        }
     }
 }
 </script>
